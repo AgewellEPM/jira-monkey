@@ -1,0 +1,8 @@
+{
+  "source": "jira",
+  "instance": "https://example.invalid",
+  "key": "DEMO-123",
+  "revision": "capture-1",
+  "title": "Prepare a response to the login report",
+  "body": "Login sometimes fails. Ask for reproduction steps and the exact error."
+}

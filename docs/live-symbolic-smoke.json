@@ -1,0 +1,187 @@
+{
+  "synthetic_fixture": true,
+  "live_local_models": true,
+  "external_services_contacted": false,
+  "fixture_approval": "explicit harness assertions, not an independent reviewer or a production sign-off",
+  "local_plan": {
+    "edits": [
+      {
+        "content": "def add(a, b):\n    return a + b\n",
+        "path": "calc.py",
+        "reason": "Replaces the current implementation `return a - b` with `return a + b`, fulfilling the objective while preserving the function's interface (same name, same parameters, unchanged signature)."
+      }
+    ],
+    "learned_rules": [],
+    "questions": [],
+    "understanding": "The objective is to modify the `add` function in `calc.py` so that it returns `a + b` instead of `a - b`, while preserving its interface (i.e., unchanged signature and behavior as seen by callers). The only editable file is `calc.py`, which currently defines `def add(a, b): return a - b`. No tools are available; edits must be exact UTF-8 replacements. Rules prohibit editing the verifier and require preserving the interface."
+  },
+  "execution": {
+    "state": "COMPLETED",
+    "result_hash": "b1888be039a84d83c4d9d3a154d883fc9e8ba0a192ad937d9afa43dcef99b84b",
+    "effects": [
+      {
+        "kind": "write",
+        "runtime": "kist-durable-sml",
+        "receipt_kinds": [
+          "task_created",
+          "approval_requested",
+          "approved",
+          "capability_claimed",
+          "step_recorded",
+          "receipt_emitted"
+        ],
+        "result": {
+          "file": {
+            "mode": 420,
+            "path": "calc.py",
+            "sha256": "ba1a531f581d2e6094e978ed6f7aca7a8d92eeb62c6e7ad73ee692f7f18bc772",
+            "text": "def add(a, b):\n    return a + b\n"
+          },
+          "kind": "write"
+        }
+      },
+      {
+        "kind": "verify",
+        "runtime": "kist-durable-sml",
+        "receipt_kinds": [
+          "task_created",
+          "approval_requested",
+          "approved",
+          "capability_claimed",
+          "step_recorded",
+          "receipt_emitted"
+        ],
+        "result": {
+          "kind": "verify",
+          "test": {
+            "argv": [
+              "/opt/homebrew/bin/python3.11",
+              "test_calc.py"
+            ],
+            "exit_code": 0,
+            "output": "two fixed arithmetic assertions passed\n",
+            "output_sha256": "c8d12cb647e18e8aaaf7f0f48dcd3204f8d40afdc830b043760a39f20aca351f",
+            "sandbox": "macOS deny-default; project read-only; network and fork denied",
+            "timeout_seconds": 45
+          }
+        }
+      }
+    ],
+    "captain": {
+      "binary": "/private/tmp/monkey-live-symbolic-cuo9aouh/state/captain/1bfd76872312ba01f0a0963b06e87a646ccdb84a4c06d882b7e5468c3a34e2f8/monkey-captain",
+      "binary_hash": "8f2c06e34761059257ef18d1a38e50bfa3010dc7c0b41bddc0ca4b52f3cfa0a1",
+      "sources": {
+        "/Users/lukekist/FortuneWheel/Tools/jira_monkey/monkey/captain_main.swift": "a50182f753499a08aa1e44c186bf124d6af1bedaf982a38986e2f86638d26812",
+        "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainFacts.swift": "0ee3d36352e2beef204a1d88f6d478294c6f89d098a16e72b2cc1576554afec1",
+        "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRule.swift": "fdd74d2532125c8ebff58be48ff42a9c1618c5334ed4bb78e2fadd45ef12c308",
+        "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRuleSet.swift": "ccf069e13d023e407ca660cce6379bedcc1219b987b695cacda45a3567b4cf3a",
+        "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/SymbolicCaptain.swift": "4f243db079fa86a9c8f5f8b16172e50cc36af7251767989134af1acc383d99e2"
+      }
+    }
+  },
+  "specialist": {
+    "at": "2026-09-14T05:08:09.942+00:00",
+    "authority": "advisory; exact operator plan approval still required",
+    "id": "agent_fee2120f002c45a98139bee5a8045c63",
+    "independent": false,
+    "kind": "agent.result",
+    "model_route": {
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "input_tokens": 4100,
+      "latency_ms": 63745.85729200044,
+      "load_duration_ns": 44534454667,
+      "output_tokens": 184,
+      "provider": "ollama",
+      "requested_model": "jira-monkey-worker:latest",
+      "returned_model": "jira-monkey-worker:latest",
+      "total_duration_ns": 63742789459
+    },
+    "parent_job": "JM-f7b86f70e4c8",
+    "result": {
+      "evidence_refs": [
+        "event:32",
+        "event:33",
+        "event:35",
+        "event:36",
+        "event:37"
+      ],
+      "questions": [
+        "Is there any requirement to validate or inspect the `calc.py` output beyond what is recorded in `effect_b8757b5603884e8f9ede37d96a5d0426` and `effect_2e81862fd6cd4e79a53ee04c885aabef`?"
+      ],
+      "summary": "No uncertainty remains regarding the arithmetic fixture\u2019s execution. All symbolic rules passed, Kist Captain verified structural preconditions without deployment claim, and the exact local result was signed off with no external implication."
+    },
+    "seal": "5d62dfa0509a9e093e86f9ed0ff65ba5b8e00dd64b8d912a7cf1459253f679f8",
+    "snapshot_id": "snapshot_45f076d7bea1426bacae8eca88d86214",
+    "task": "Review the recorded arithmetic work and list any remaining uncertainty, citing recorded event references."
+  },
+  "tool_proposal": {
+    "tool": "lookup_ticket",
+    "arguments": {
+      "key": "REQ-101"
+    },
+    "delivery": "RETURNED_UNVERIFIED"
+  },
+  "passed": true,
+  "model_calls": [
+    {
+      "at": "2026-09-14T05:07:05.658+00:00",
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "id": "chatcall_dbb72daa261a4e94bf852fdc7c955e03",
+      "input_tokens": 498,
+      "latency_ms": 54278.94995799579,
+      "load_duration_ns": 46410203208,
+      "output_tokens": 181,
+      "provider": "ollama",
+      "repair": false,
+      "requested_model": "jira-monkey-worker:latest",
+      "returned_model": "jira-monkey-worker:latest",
+      "scope": "chat.project_planning",
+      "total_duration_ns": 54270951708
+    },
+    {
+      "at": "2026-09-14T05:08:09.941+00:00",
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "id": "chatcall_77de481752c44064b593337d2362dbff",
+      "input_tokens": 4100,
+      "latency_ms": 63745.85729200044,
+      "load_duration_ns": 44534454667,
+      "output_tokens": 184,
+      "provider": "ollama",
+      "repair": false,
+      "requested_model": "jira-monkey-worker:latest",
+      "returned_model": "jira-monkey-worker:latest",
+      "scope": "chat.specialist",
+      "total_duration_ns": 63742789459
+    },
+    {
+      "at": "2026-09-14T05:09:06.603+00:00",
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "id": "chatcall_db001033e20a4334868a75d84ca6df08",
+      "input_tokens": 1079,
+      "latency_ms": 56190.6278749957,
+      "load_duration_ns": 49958209750,
+      "output_tokens": 95,
+      "provider": "ollama",
+      "repair": false,
+      "requested_model": "jira-monkey-worker:latest",
+      "returned_model": "jira-monkey-worker:latest",
+      "scope": "chat.mcp_planning",
+      "total_duration_ns": 56182580458
+    }
+  ],
+  "status_samples": 2079,
+  "status_p95_ms": 0.246666997554712,
+  "observed_at": "2026-09-14T05:09:07.305159+00:00"
+}

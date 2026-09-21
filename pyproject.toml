@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monkey-workdesk"
+dynamic = ["version", "dependencies"]
+description = "A foreground terminal worker with local models and signed work evidence"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[project.scripts]
+Monkey = "monkey.cli:main"
+jira-monkey = "monkey.cli:main"
+
+[tool.setuptools]
+packages = ["monkey"]
+py-modules = ["jira_monkey"]
+
+[tool.setuptools.dynamic]
+version = {attr = "monkey.VERSION"}
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.package-data]
+monkey = ["*.swift", "*.Dockerfile", "web/*.html", "web/*.css", "web/*.js"]

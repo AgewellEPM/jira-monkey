@@ -1,0 +1,8 @@
+prompt_toolkit==3.0.52
+httpx==0.28.1
+mcp==2.2.0
+jsonschema==4.26.0
+starlette==1.6.0
+uvicorn==0.52.4
+cryptography==50.0.1
+tzdata==2026.3

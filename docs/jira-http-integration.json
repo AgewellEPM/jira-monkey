@@ -1,0 +1,89 @@
+{
+  "results": [
+    {
+      "scenario": "response-loss",
+      "states": [
+        "POST_UNKNOWN",
+        "POSTED_VERIFIED"
+      ],
+      "post_count": 1,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123?fields=summary,description,updated"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123?fields=summary,description,updated"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/myself"
+        },
+        {
+          "method": "POST",
+          "path": "/rest/api/3/issue/DEMO-123/comment"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123?fields=summary,description,updated"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123/comment?startAt=0&maxResults=100&expand=properties"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123/comment?startAt=1&maxResults=100&expand=properties"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123/comment/10001?expand=properties"
+        }
+      ],
+      "real_http_on_loopback": true,
+      "live_jira_contacted": false
+    },
+    {
+      "scenario": "readback-error",
+      "states": [
+        "POSTED_UNVERIFIED",
+        "POSTED_UNVERIFIED"
+      ],
+      "post_count": 1,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123?fields=summary,description,updated"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123?fields=summary,description,updated"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/myself"
+        },
+        {
+          "method": "POST",
+          "path": "/rest/api/3/issue/DEMO-123/comment"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123/comment/10001?expand=properties"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123?fields=summary,description,updated"
+        },
+        {
+          "method": "GET",
+          "path": "/rest/api/3/issue/DEMO-123/comment/10001?expand=properties"
+        }
+      ],
+      "real_http_on_loopback": true,
+      "live_jira_contacted": false
+    }
+  ],
+  "server_cleanup_verified": true
+}

@@ -1,0 +1,23 @@
+{
+  "provider": "ollama",
+  "model": "jira-monkey-worker:latest",
+  "ollama_model": "jira-monkey-worker:latest",
+  "chat_model": "jira-monkey-chat:latest",
+  "chat_digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+  "ollama_digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+  "model_digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+  "site": "",
+  "email": "",
+  "review_policy": "human",
+  "max_attempts": 3,
+  "max_provider_calls": 12,
+  "max_transport_retries": 2,
+  "ollama_url": "http://127.0.0.1:11434",
+  "chat_context": 4096,
+  "chat_output": 256,
+  "chat_wait_seconds": 3,
+  "request_timeout": 120,
+  "projects": [],
+  "visibility": null,
+  "prompt_version": "monkey-response-v1"
+}

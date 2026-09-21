@@ -1,0 +1,5 @@
+{
+  "transport": "streamable-http",
+  "url": "https://your-service.example/mcp",
+  "headers": {}
+}

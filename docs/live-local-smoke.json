@@ -1,0 +1,243 @@
+{
+  "synthetic_ticket": true,
+  "live_local_inference": true,
+  "jira_contacted": false,
+  "model": "qwen3-vl:4b-instruct",
+  "job": {
+    "job_id": "JM-97f543f2df19",
+    "key": "DEMO-123",
+    "work_state": "PAUSED",
+    "stage": null,
+    "delivery_state": "DRAFT",
+    "attempts": 1,
+    "attempt_limit": 3,
+    "provider_calls": 3,
+    "call_limit": 12,
+    "version": 19,
+    "reason": "Draft ready for operator review; external changes: none",
+    "fixture": false,
+    "evidence": "/show JM-97f543f2df19"
+  },
+  "records": {
+    "job": {
+      "approval_id": null,
+      "attempt_count": 1,
+      "call_count": 3,
+      "created_at": "2026-09-14T01:56:20.990+00:00",
+      "delivery_state": "DRAFT",
+      "draft_id": "draft_5502b787396e45e69b6938c22c3965fa",
+      "feedback": [],
+      "fixture": false,
+      "id": "JM-97f543f2df19",
+      "issue_id": null,
+      "key": "DEMO-123",
+      "limits": {
+        "attempts": 3,
+        "calls": 12,
+        "retries": 2
+      },
+      "operation_token": null,
+      "outbox_id": null,
+      "pause_after": null,
+      "reason": "Draft ready for operator review; external changes: none",
+      "recipe": {
+        "allowed_destinations": [
+          "http://127.0.0.1:11434"
+        ],
+        "chat_context": 4096,
+        "chat_digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+        "chat_model": "qwen3-vl:4b-instruct",
+        "chat_output": 256,
+        "chat_wait_seconds": 3,
+        "email": "",
+        "max_attempts": 3,
+        "max_provider_calls": 12,
+        "max_transport_retries": 2,
+        "model": "qwen3-vl:4b-instruct",
+        "model_digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+        "ollama_digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+        "ollama_model": "qwen3-vl:4b-instruct",
+        "ollama_url": "http://127.0.0.1:11434",
+        "projects": [],
+        "prompt_version": "monkey-response-v1",
+        "provider": "ollama",
+        "request_timeout": 120,
+        "review_policy": "human",
+        "site": "",
+        "visibility": null
+      },
+      "resume_stage": null,
+      "resume_state": "DRAFT_READY",
+      "retry_count": 0,
+      "review_id": "review_b111b4ccaa354685a42106757188cf12",
+      "site": "https://example.invalid",
+      "snapshot_id": "snapshot_0d0128aed61a4028970ec09b57f1646a",
+      "stage": null,
+      "stage_started_at": "2026-09-14T01:56:35.831+00:00",
+      "triage": {
+        "criteria": [
+          "Acknowledge the reported issue",
+          "Request detailed reproduction steps to assist in troubleshooting"
+        ],
+        "goal": "Draft a useful response requesting reproduction steps for the login issue.",
+        "needs_human": false,
+        "reason": "The ticket body explicitly requests reproduction steps, and no code execution or test evidence is required for this task.",
+        "unknowns": []
+      },
+      "updated_at": "2026-09-14T01:56:38.320+00:00",
+      "version": 19,
+      "work_state": "PAUSED"
+    },
+    "source": {
+      "captured_at": "2026-09-14T01:56:20.990+00:00",
+      "content_hash": "8c75d20ea8f5765990b31cf964f4c9dd99e645a6264dc8171dff10f1847122b3",
+      "id": "snapshot_0d0128aed61a4028970ec09b57f1646a",
+      "issue_id": null,
+      "material_hash": "737d4374bfc85eb2a62c16a514bee4919dc006f8fada54ca54625a89ea99b3fa",
+      "origin": "https://example.invalid",
+      "schema_version": 1,
+      "server_updated": "fixture-1",
+      "ticket": {
+        "body": "The login sometimes fails. Draft a useful response requesting reproduction steps.",
+        "instance": "https://example.invalid",
+        "key": "DEMO-123",
+        "revision": "fixture-1",
+        "source": "jira",
+        "title": "Explain the login report"
+      }
+    },
+    "attempts": [
+      {
+        "draft_id": "draft_5502b787396e45e69b6938c22c3965fa",
+        "finished_at": "2026-09-14T01:56:38.319+00:00",
+        "id": "JM-97f543f2df19:1",
+        "number": 1,
+        "review_id": "review_b111b4ccaa354685a42106757188cf12",
+        "snapshot_id": "snapshot_0d0128aed61a4028970ec09b57f1646a",
+        "started_at": "2026-09-14T01:56:20.991+00:00",
+        "state": "COMPLETED"
+      }
+    ],
+    "drafts": [
+      {
+        "complete": true,
+        "created_at": "2026-09-14T01:56:35.830+00:00",
+        "id": "draft_5502b787396e45e69b6938c22c3965fa",
+        "number": 1,
+        "operation_id": "op_76be7a623eb54dc59a9b455b21c7f663",
+        "payload": {
+          "body": {
+            "content": [
+              {
+                "content": [
+                  {
+                    "text": "Thank you for reporting the login issue. To help us investigate further, could you please provide detailed steps to reproduce the problem? For example:\n\n1. What are you using to access the login page (browser, device, app)?\n2. What exact actions do you take before and after the login fails?\n3. Are there any error messages or logs visible when it fails?\n4. Does this happen consistently, or only under certain conditions?\n\nThis information will help us identify whether the issue is environment-specific or a broader system problem.",
+                    "type": "text"
+                  }
+                ],
+                "type": "paragraph"
+              }
+            ],
+            "type": "doc",
+            "version": 1
+          },
+          "properties": [
+            {
+              "key": "jira-monkey.operation",
+              "value": {
+                "id": "op_76be7a623eb54dc59a9b455b21c7f663",
+                "schema_version": 1
+              }
+            }
+          ]
+        },
+        "payload_hash": "48f4fa9837d9e4e100f95f13857054acb4d8359d364f7f4c3a4a37ad1138b472",
+        "snapshot_id": "snapshot_0d0128aed61a4028970ec09b57f1646a",
+        "text": "Thank you for reporting the login issue. To help us investigate further, could you please provide detailed steps to reproduce the problem? For example:\n\n1. What are you using to access the login page (browser, device, app)?\n2. What exact actions do you take before and after the login fails?\n3. Are there any error messages or logs visible when it fails?\n4. Does this happen consistently, or only under certain conditions?\n\nThis information will help us identify whether the issue is environment-specific or a broader system problem.",
+        "text_hash": "cbf71fd382ea6ce208fb393f64e9d91095175259d062de5d23c871b20722fe13"
+      }
+    ],
+    "reviews": [
+      {
+        "created_at": "2026-09-14T01:56:38.319+00:00",
+        "draft_hash": "48f4fa9837d9e4e100f95f13857054acb4d8359d364f7f4c3a4a37ad1138b472",
+        "draft_id": "draft_5502b787396e45e69b6938c22c3965fa",
+        "id": "review_b111b4ccaa354685a42106757188cf12",
+        "result": {
+          "findings": [],
+          "unresolved_questions": [],
+          "verdict": "PASS"
+        },
+        "snapshot_id": "snapshot_0d0128aed61a4028970ec09b57f1646a"
+      }
+    ],
+    "approvals": [],
+    "outbox": [],
+    "evidence_seq": 19
+  },
+  "calls": [
+    {
+      "attempt": 1,
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "finished_at": "2026-09-14T01:56:31.189+00:00",
+      "id": "provider_f5c81cebce92480991c40fa02a01b84f",
+      "input_tokens": 221,
+      "latency_ms": 10192.985250003403,
+      "load_duration_ns": 5891852375,
+      "output_tokens": 93,
+      "provider": "ollama",
+      "requested_model": "qwen3-vl:4b-instruct",
+      "returned_model": "qwen3-vl:4b-instruct",
+      "scope": "triage",
+      "started_at": "2026-09-14T01:56:20.992+00:00",
+      "state": "COMPLETED",
+      "total_duration_ns": 9924666875
+    },
+    {
+      "attempt": 1,
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "finished_at": "2026-09-14T01:56:35.825+00:00",
+      "id": "provider_f3ff0298cc1e4ad09a34e446454c5c39",
+      "input_tokens": 285,
+      "latency_ms": 4602.272332995199,
+      "load_duration_ns": 283796250,
+      "output_tokens": 107,
+      "provider": "ollama",
+      "requested_model": "qwen3-vl:4b-instruct",
+      "returned_model": "qwen3-vl:4b-instruct",
+      "scope": "draft",
+      "started_at": "2026-09-14T01:56:31.191+00:00",
+      "state": "COMPLETED",
+      "total_duration_ns": 4600124875
+    },
+    {
+      "attempt": 1,
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "finished_at": "2026-09-14T01:56:38.319+00:00",
+      "id": "provider_14361439284142d7b92ef8d29d31bdfc",
+      "input_tokens": 448,
+      "latency_ms": 2408.939000000828,
+      "load_duration_ns": 347026916,
+      "output_tokens": 24,
+      "provider": "ollama",
+      "requested_model": "qwen3-vl:4b-instruct",
+      "returned_model": "qwen3-vl:4b-instruct",
+      "scope": "review",
+      "started_at": "2026-09-14T01:56:35.831+00:00",
+      "state": "COMPLETED",
+      "total_duration_ns": 2407024666
+    }
+  ],
+  "status_samples": 200,
+  "status_p95_ms": 0.046707995352335274,
+  "pause_after_review_verified": true
+}

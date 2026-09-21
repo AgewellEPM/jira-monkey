@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+# venvs
+.venv/
+venv/
+*-venv/
+# local state / data
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+backups/
+*.log
+.env
+.env.*
+# macOS
+.DS_Store

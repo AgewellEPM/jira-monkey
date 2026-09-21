@@ -1,0 +1,14 @@
+{
+  "machine": "Apple M4, 16 GiB",
+  "platform": "macOS-26.0-arm64-arm-64bit",
+  "python": "3.11.14",
+  "status_samples": 1000,
+  "status_p95_ms": 0.422417011577636,
+  "event_samples": 13,
+  "event_to_ui_emit_p95_ms": 182.44,
+  "typed_input_survived_concurrent_events": true,
+  "pause_after_review": "PAUSED",
+  "post_count": 0,
+  "model_adapter": "offline fixture",
+  "measurement_boundary": "Core handler and prompt-toolkit input with captured UI emit; physical display paint is not measured"
+}

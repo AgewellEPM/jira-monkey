@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>🍌 Monkey — your work desk</title>
+  <link rel="stylesheet" href="/dashboard.css">
+  <script src="/dashboard.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to workspace</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <a class="brand" href="/" aria-label="Monkey home"><span class="brand-icon">🍌</span><span>Monkey<span class="brand-caption">YOUR WORK DESK</span></span></a>
+      <div class="workspace-switch"><span class="workspace-avatar">M</span><span>My workspace<small>Local · personal</small></span><span class="workspace-lock" aria-label="Private">◇</span></div>
+      <p class="nav-label">WORKSPACE</p>
+      <nav id="navigation">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">▦</span>Overview</button>
+        <button class="nav-item" data-view="current"><span class="nav-icon">☷</span>Current tickets<span class="nav-count" id="nav-current">—</span></button>
+        <button class="nav-item" data-view="review"><span class="nav-icon">◉</span>Needs your review<span class="nav-count" id="nav-review">—</span></button>
+        <button class="nav-item" data-view="calendar"><span class="nav-icon">▦</span>Past & completed</button>
+        <button class="nav-item" data-view="activity"><span class="nav-icon">↳</span>Activity</button>
+        <button class="nav-item" data-view="connections"><span class="nav-icon">⌘</span>Connections</button>
+      </nav>
+      <div class="sidebar-note"><span>One Monkey.<br>Two ways to work.</span><p>Your terminal and dashboard share the same work.</p><code>/dashboard</code></div>
+      <div class="sidebar-bottom"><span class="status-dot" id="connection-dot"></span><span id="connection-label">Connecting to Monkey</span><small id="version"></small></div>
+    </aside>
+
+    <main id="workspace" class="workspace">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb">Overview</strong></div><button class="button primary small" id="new-ticket"><span>＋</span> Start ticket</button></header>
+      <div class="workspace-body">
+        <div id="connection-error" class="notice" role="status" hidden></div>
+        <section class="page-heading"><div><p class="eyebrow" id="page-eyebrow">A CLEARER PICTURE</p><h1 id="page-title">Your work, in one place.</h1><p id="page-description">Give Monkey the work. Keep the whole picture.</p></div><span class="date-label" id="today"></span></section>
+        <section class="metrics" aria-label="Recorded work totals">
+          <button class="metric" data-view="current"><span class="metric-top">Current tickets <span class="metric-icon yellow">☷</span></span><strong id="count-current">—</strong><span class="metric-note">Open work</span></button>
+          <button class="metric" data-view="review"><span class="metric-top">Needs you <span class="metric-icon peach">◉</span></span><strong id="count-review">—</strong><span class="metric-note">Review or provide input</span></button>
+          <button class="metric" data-view="calendar"><span class="metric-top">Completed <span class="metric-icon sage">✓</span></span><strong id="count-completed">—</strong><span class="metric-note">Signed off or closed</span></button>
+          <div class="metric"><span class="metric-top">Published <span class="metric-icon blue">↗</span></span><strong id="count-published">—</strong><span class="metric-note">Verified Jira comments</span></div>
+        </section>
+        <div class="worker-strip"><span class="status-dot"></span><strong id="worker-state">Reading recorded state</strong><span class="worker-detail" id="worker-detail"></span><span class="live-label" id="updated-at"></span></div>
+
+        <section id="calendar-panel" class="panel calendar-panel" hidden>
+          <div class="panel-heading"><div><p class="eyebrow">YOUR WORK, OVER TIME</p><h2 id="calendar-title">Calendar</h2></div><div class="calendar-controls"><select id="calendar-mode" aria-label="Calendar type"><option value="completed">Completed</option><option value="planned">Planned</option></select><button class="icon-button" id="previous-month" aria-label="Previous month">←</button><button class="icon-button" id="next-month" aria-label="Next month">→</button></div></div>
+          <div class="calendar-grid" id="calendar-grid" aria-label="Choose a day"></div>
+          <div class="calendar-footer"><span id="selected-day">All dates</span><button class="text-button" id="all-dates">Show all dates</button></div>
+        </section>
+
+        <section class="panel tickets-panel" id="tickets-panel">
+          <div class="panel-heading"><div><h2 id="list-title">On your desk</h2><p id="list-subtitle">The latest work across your workspace.</p></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a ticket…" aria-label="Search all tickets"></label></div>
+          <div id="ticket-list" class="ticket-list"></div>
+          <div class="empty-state" id="empty-state" hidden><div class="empty-banana" aria-hidden="true">🍌</div><h3 id="empty-title">A fresh start.</h3><p id="empty-copy">Describe a ticket, a sprint, or a request.<br>Monkey will help you move it forward.</p><button class="button primary" id="empty-start">＋ Start your first ticket</button></div>
+          <div class="list-footer"><span id="list-count">Loading your tickets…</span><div><button class="text-button" id="previous-page">← Previous</button><button class="text-button" id="next-page">Next →</button></div></div>
+        </section>
+
+        <section class="panel detail-panel" id="detail-panel" hidden>
+          <div class="panel-heading"><button class="text-button" id="close-detail">← All tickets</button><span class="pill" id="detail-key"></span></div>
+          <div class="detail-heading"><h2 id="detail-title"></h2><p id="detail-state"></p></div>
+          <div class="tabs" role="tablist" id="detail-tabs"><button data-tab="overview" class="active" role="tab">Overview</button><button data-tab="draft" role="tab">Draft</button><button data-tab="events" role="tab">Events</button><button data-tab="dates" role="tab">Dates</button><button data-tab="tools" role="tab">Tools</button><button data-tab="plan" role="tab">Plan</button><button data-tab="trace" role="tab">Signed trace</button></div>
+          <pre class="evidence" id="detail-evidence" tabindex="0"></pre>
+          <div class="detail-actions" id="detail-actions"><button class="button primary" data-action="approve">Review draft</button><button class="button" data-action="publish_preview">Prepare publish</button><button class="button" data-action="run">Run once</button><button class="button" data-action="pause">Pause after review</button><button class="button" data-action="resume">Resume</button><button class="button" data-action="retry">Revise</button><button class="button" data-action="schedule">Set dates</button><button class="button" data-action="reconcile">Reconcile delivery</button><button class="text-button danger" data-action="cancel">Cancel work</button></div>
+        </section>
+
+        <section class="panel" id="connections-panel" hidden><div class="panel-heading"><div><h2>Bring your tools along.</h2><p>Connections configured in this Monkey workspace.</p></div></div><div class="services-grid" id="services-grid"></div><p class="panel-footnote">Use <code>/connect</code> in Monkey’s terminal for guided setup with hidden credential entry.</p></section>
+        <section class="panel activity-panel" id="activity-panel"><div class="panel-heading"><div><h2>What’s happening</h2><p>Actual events, straight from Monkey’s journal.</p></div><span class="pill quiet" id="event-count">LIVE ACTIVITY</span></div><ol class="activity-list" id="activity-list"></ol><div class="activity-empty" id="activity-empty">Recorded activity will appear here as you work.</div><button class="text-button activity-more" id="activity-more" hidden>Load earlier activity</button></section>
+        <footer class="workspace-footer"><span>🍌 A little less busywork.</span><span id="route-label">Local chat · local drafting</span></footer>
+      </div>
+    </main>
+
+    <aside class="chat-panel" aria-label="Conversation with Monkey">
+      <header class="chat-header"><span class="chat-avatar">🍌</span><div><strong>Ask Monkey</strong><span id="chat-availability">Connected to your workspace</span></div><span class="chat-live" id="chat-live"></span></header>
+      <div class="chat-context"><span>CONVERSATION</span><span id="chat-focus">Workspace</span></div>
+      <div class="conversation" id="conversation" role="log" aria-live="polite" aria-label="Messages"><div class="chat-welcome" id="chat-welcome"><span class="welcome-wave">Hey, I’m Monkey.</span><h2>What needs<br>doing?</h2><p>Start a request, check on a ticket, or change direction while I work.</p><div class="suggestions"><button data-message="What needs me?">What needs my attention? <span>↗</span></button><button data-message="What are you doing?">What are you working on? <span>↗</span></button><button data-prefill="/request ">Draft a new ticket <span>＋</span></button></div></div><div id="messages"></div></div>
+      <div class="composer-area"><form id="chat-form"><label class="sr-only" for="message">Message Monkey</label><textarea id="message" rows="3" maxlength="6000" placeholder="Ask Monkey, or give it a task…"></textarea><div class="composer-bottom"><span>↵ Send <span class="composer-separator">·</span> Shift ↵ New line</span><button id="send-message" type="submit" aria-label="Send message to Monkey">↑</button></div></form><p class="chat-footnote">Same Monkey. Same work. You stay in control.</p></div>
+    </aside>
+  </div>
+
+  <dialog id="review-dialog"><form id="review-form"><div class="dialog-heading"><span class="brand-icon">🍌</span><button class="icon-button" type="button" id="close-dialog" aria-label="Close review">×</button></div><p class="eyebrow" id="review-eyebrow">EXACT CANDIDATE</p><h2 id="review-title">Review this draft</h2><p id="review-description"></p><pre id="review-content" class="review-content"></pre><label id="note-label">Your review or direction<textarea id="review-note" rows="3" maxlength="2000" placeholder="Add a note…"></textarea></label><div id="date-fields" hidden><label>Start<input type="datetime-local" id="start-date"></label><label>Finish<input type="datetime-local" id="finish-date"></label><label>Timezone<input id="timezone" type="text"></label></div><label class="check-label" id="review-check-label"><input type="checkbox" id="review-check">I reviewed this exact candidate and target.</label><p id="review-error" class="form-error" role="alert"></p><button class="button primary" type="submit" id="review-submit">Approve draft</button></form></dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

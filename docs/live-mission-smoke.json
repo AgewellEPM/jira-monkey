@@ -1,0 +1,496 @@
+{
+  "synthetic_fixture": true,
+  "live_local_models": true,
+  "external_services_contacted": false,
+  "approval": "Fixture harness checks the exact proposed actions and predicates before authorizing; not a production human review",
+  "plan": {
+    "agents": [
+      "reviewer",
+      "worker"
+    ],
+    "at": "2026-09-14T05:47:04.263+00:00",
+    "checks": [
+      {
+        "expected": "Mission fixture Alpha",
+        "pointer": "/parsedContent/0/tasks/0/title",
+        "step": 2
+      }
+    ],
+    "clarification_ref": null,
+    "id": "mission_d84bd84138644befbbbd2a17aca371e8",
+    "job_id": "JM-2f9fea141399",
+    "kind": "mission.plan",
+    "objective": "Use only fixture tools: first add_task with title \"Mission fixture Alpha\" and lose_response false, then list_tasks with empty arguments to verify it. The private ledger starts empty. The documented fixture list_tasks response is JSON text: {\"tasks\":[{\"title\":\"Mission fixture Alpha\"}]}. Use exactly two steps and check step 2 at /parsedContent/0/tasks/0/title equals the JSON string \"Mission fixture Alpha\". Assign one worker for creation and one reviewer for the separate read-back. No other tool, service or task is needed.",
+    "plan_hash": "cbb828144ca61e48420243a30b0f4e090d87c26120a8d8c5e032417a97ca47fc",
+    "questions": [],
+    "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+    "seal": "e719bf8988ba6d5e8d55fabd9322fd08f830634700bd388a8671c5518235b1b7",
+    "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+    "steps": [
+      {
+        "agent": "worker",
+        "index": 1,
+        "purpose": "Create the task using add_task with specified title and lose_response false.",
+        "request": {
+          "arguments": {
+            "lose_response": false,
+            "title": "Mission fixture Alpha"
+          },
+          "at": "2026-09-14T05:47:04.240+00:00",
+          "classification": "external effect; server hints confer no authority",
+          "connection_id": "connector_27ce07f58aae4a0ebefe8314703d5ba8",
+          "id": "toolplan_c469b77dca46435c9b1bc1fc8d48a5ba",
+          "job_id": "JM-2f9fea141399",
+          "kind": "mcp.plan",
+          "plan_hash": "15ae72e55219382a593631a70907135a3bd4f81e9e2442ab5a92f0ebbf2d6fe2",
+          "route": {
+            "transport": "stdio"
+          },
+          "runtime": {
+            "binary": "/Users/lukekist/bin/kist-current",
+            "binary_hash": "b194da15a703cd9659e2bec3046b7ee8845eb7ba666c35bbd9fc0100e7ddc634",
+            "captain_sources": {
+              "/Users/lukekist/FortuneWheel/Tools/jira_monkey/monkey/captain_main.swift": "27f65fd23eb94179472ffc01098e932939414e1d928414ebe3402a53338a81b8",
+              "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainFacts.swift": "0ee3d36352e2beef204a1d88f6d478294c6f89d098a16e72b2cc1576554afec1",
+              "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRule.swift": "fdd74d2532125c8ebff58be48ff42a9c1618c5334ed4bb78e2fadd45ef12c308",
+              "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRuleSet.swift": "ccf069e13d023e407ca660cce6379bedcc1219b987b695cacda45a3567b4cf3a",
+              "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/SymbolicCaptain.swift": "4f243db079fa86a9c8f5f8b16172e50cc36af7251767989134af1acc383d99e2"
+            },
+            "source": "/Volumes/PRO-G40/kist-loops"
+          },
+          "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+          "schema_hash": "f706c2fa7a1ff3a086ed48a75f49f1e322482259b2e0fca5ffa1073abc7c21ec",
+          "seal": "d18a1882a6c09b9b6e6e0466c78597884588bce54052a30cbe5a455d793cde1b",
+          "server": "fixture",
+          "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+          "tool": "add_task"
+        }
+      },
+      {
+        "agent": "reviewer",
+        "index": 2,
+        "purpose": "Verify the task was created by listing tasks and checking the title.",
+        "request": {
+          "arguments": {},
+          "at": "2026-09-14T05:47:04.262+00:00",
+          "classification": "external effect; server hints confer no authority",
+          "connection_id": "connector_27ce07f58aae4a0ebefe8314703d5ba8",
+          "id": "toolplan_d166cc13aa234b8cb36e0d3a204c128f",
+          "job_id": "JM-2f9fea141399",
+          "kind": "mcp.plan",
+          "plan_hash": "e3608fd9ec3df110b2a320c56a71aa35e2cb7df8f07d69fa62ec2aeb42a4fe7d",
+          "route": {
+            "transport": "stdio"
+          },
+          "runtime": {
+            "binary": "/Users/lukekist/bin/kist-current",
+            "binary_hash": "b194da15a703cd9659e2bec3046b7ee8845eb7ba666c35bbd9fc0100e7ddc634",
+            "captain_sources": {
+              "/Users/lukekist/FortuneWheel/Tools/jira_monkey/monkey/captain_main.swift": "27f65fd23eb94179472ffc01098e932939414e1d928414ebe3402a53338a81b8",
+              "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainFacts.swift": "0ee3d36352e2beef204a1d88f6d478294c6f89d098a16e72b2cc1576554afec1",
+              "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRule.swift": "fdd74d2532125c8ebff58be48ff42a9c1618c5334ed4bb78e2fadd45ef12c308",
+              "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRuleSet.swift": "ccf069e13d023e407ca660cce6379bedcc1219b987b695cacda45a3567b4cf3a",
+              "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/SymbolicCaptain.swift": "4f243db079fa86a9c8f5f8b16172e50cc36af7251767989134af1acc383d99e2"
+            },
+            "source": "/Volumes/PRO-G40/kist-loops"
+          },
+          "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+          "schema_hash": "b96c26ed6b780b512998a9c97e891e12187d07b4297b79ab546a6322b882f8f3",
+          "seal": "a1d5f64049ba9adddc7c931e53f30c5b23f589b7384dbdb6d19769b21f642e68",
+          "server": "fixture",
+          "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+          "tool": "list_tasks"
+        }
+      }
+    ],
+    "understanding": "The mission requires two exact steps using only fixture tools: first, add_task with title 'Mission fixture Alpha' and lose_response false; second, list_tasks with empty arguments to verify the result. The private ledger starts empty. Verification must check /parsedContent/0/tasks/0/title equals JSON string \"Mission fixture Alpha\". One worker is assigned for creation, one reviewer for read-back. No other tools or steps are permitted."
+  },
+  "result": {
+    "at": "2026-09-14T05:49:00.581+00:00",
+    "calls": [
+      {
+        "agent_id": "agent_3e93dedff3f84db8bd363e397c57f08d",
+        "call_id": "mission_d84bd84138644befbbbd2a17aca371e8-s1-ce6ada266ca443a2be0c98d88b740827",
+        "request_hash": "15ae72e55219382a593631a70907135a3bd4f81e9e2442ab5a92f0ebbf2d6fe2",
+        "result_hash": "f5ca9dcdc69161cf4d5fe8894242b527e6ae8d5db59df67fb3b7a47656faeb6f",
+        "step_index": 1
+      },
+      {
+        "agent_id": "agent_3416337913f94175af0af23cc3774502",
+        "call_id": "mission_d84bd84138644befbbbd2a17aca371e8-s2-787fab432790417ba1a9352ff0249327",
+        "request_hash": "e3608fd9ec3df110b2a320c56a71aa35e2cb7df8f07d69fa62ec2aeb42a4fe7d",
+        "result_hash": "ef57c36898a6c5225587b1d9e206f14f378ef9cbd69690e5e2a0477184746c20",
+        "step_index": 2
+      }
+    ],
+    "checks": [
+      {
+        "actual": "Mission fixture Alpha",
+        "expected": "Mission fixture Alpha",
+        "passed": true,
+        "pointer": "/parsedContent/0/tasks/0/title",
+        "result_hash": "ef57c36898a6c5225587b1d9e206f14f378ef9cbd69690e5e2a0477184746c20",
+        "step": 2
+      }
+    ],
+    "id": "missionresult_dc1a5a15dc6e446bb8a4aeed37c17f2c",
+    "kind": "mission.result",
+    "mission_id": "mission_d84bd84138644befbbbd2a17aca371e8",
+    "plan_hash": "cbb828144ca61e48420243a30b0f4e090d87c26120a8d8c5e032417a97ca47fc",
+    "result_hash": "d87a7d31417f5df7b560cca7f6490674dbb8f7d22873e4d029c7ac2b1abe5753",
+    "run_id": "missionrun_c5bfbba00fae46ed9633db8b2024f869",
+    "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+    "seal": "03d7ec13e74f9d00878f1d82ede3ceb506a6538e9cfcc7b30dbd1d85c7ba97f8",
+    "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b"
+  },
+  "agents": {
+    "job_id": "JM-2f9fea141399",
+    "mission_state": "COMPLETED",
+    "reason": "Exact mission outcome signed off against its approved checks; all step evidence is retained.",
+    "mission_records": [
+      {
+        "agents": [
+          "reviewer",
+          "worker"
+        ],
+        "at": "2026-09-14T05:47:04.263+00:00",
+        "checks": [
+          {
+            "expected": "Mission fixture Alpha",
+            "pointer": "/parsedContent/0/tasks/0/title",
+            "step": 2
+          }
+        ],
+        "clarification_ref": null,
+        "id": "mission_d84bd84138644befbbbd2a17aca371e8",
+        "job_id": "JM-2f9fea141399",
+        "kind": "mission.plan",
+        "objective": "Use only fixture tools: first add_task with title \"Mission fixture Alpha\" and lose_response false, then list_tasks with empty arguments to verify it. The private ledger starts empty. The documented fixture list_tasks response is JSON text: {\"tasks\":[{\"title\":\"Mission fixture Alpha\"}]}. Use exactly two steps and check step 2 at /parsedContent/0/tasks/0/title equals the JSON string \"Mission fixture Alpha\". Assign one worker for creation and one reviewer for the separate read-back. No other tool, service or task is needed.",
+        "plan_hash": "cbb828144ca61e48420243a30b0f4e090d87c26120a8d8c5e032417a97ca47fc",
+        "questions": [],
+        "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+        "seal": "e719bf8988ba6d5e8d55fabd9322fd08f830634700bd388a8671c5518235b1b7",
+        "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+        "steps": [
+          {
+            "agent": "worker",
+            "index": 1,
+            "purpose": "Create the task using add_task with specified title and lose_response false.",
+            "request": {
+              "arguments": {
+                "lose_response": false,
+                "title": "Mission fixture Alpha"
+              },
+              "at": "2026-09-14T05:47:04.240+00:00",
+              "classification": "external effect; server hints confer no authority",
+              "connection_id": "connector_27ce07f58aae4a0ebefe8314703d5ba8",
+              "id": "toolplan_c469b77dca46435c9b1bc1fc8d48a5ba",
+              "job_id": "JM-2f9fea141399",
+              "kind": "mcp.plan",
+              "plan_hash": "15ae72e55219382a593631a70907135a3bd4f81e9e2442ab5a92f0ebbf2d6fe2",
+              "route": {
+                "transport": "stdio"
+              },
+              "runtime": {
+                "binary": "/Users/lukekist/bin/kist-current",
+                "binary_hash": "b194da15a703cd9659e2bec3046b7ee8845eb7ba666c35bbd9fc0100e7ddc634",
+                "captain_sources": {
+                  "/Users/lukekist/FortuneWheel/Tools/jira_monkey/monkey/captain_main.swift": "27f65fd23eb94179472ffc01098e932939414e1d928414ebe3402a53338a81b8",
+                  "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainFacts.swift": "0ee3d36352e2beef204a1d88f6d478294c6f89d098a16e72b2cc1576554afec1",
+                  "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRule.swift": "fdd74d2532125c8ebff58be48ff42a9c1618c5334ed4bb78e2fadd45ef12c308",
+                  "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRuleSet.swift": "ccf069e13d023e407ca660cce6379bedcc1219b987b695cacda45a3567b4cf3a",
+                  "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/SymbolicCaptain.swift": "4f243db079fa86a9c8f5f8b16172e50cc36af7251767989134af1acc383d99e2"
+                },
+                "source": "/Volumes/PRO-G40/kist-loops"
+              },
+              "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+              "schema_hash": "f706c2fa7a1ff3a086ed48a75f49f1e322482259b2e0fca5ffa1073abc7c21ec",
+              "seal": "d18a1882a6c09b9b6e6e0466c78597884588bce54052a30cbe5a455d793cde1b",
+              "server": "fixture",
+              "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+              "tool": "add_task"
+            }
+          },
+          {
+            "agent": "reviewer",
+            "index": 2,
+            "purpose": "Verify the task was created by listing tasks and checking the title.",
+            "request": {
+              "arguments": {},
+              "at": "2026-09-14T05:47:04.262+00:00",
+              "classification": "external effect; server hints confer no authority",
+              "connection_id": "connector_27ce07f58aae4a0ebefe8314703d5ba8",
+              "id": "toolplan_d166cc13aa234b8cb36e0d3a204c128f",
+              "job_id": "JM-2f9fea141399",
+              "kind": "mcp.plan",
+              "plan_hash": "e3608fd9ec3df110b2a320c56a71aa35e2cb7df8f07d69fa62ec2aeb42a4fe7d",
+              "route": {
+                "transport": "stdio"
+              },
+              "runtime": {
+                "binary": "/Users/lukekist/bin/kist-current",
+                "binary_hash": "b194da15a703cd9659e2bec3046b7ee8845eb7ba666c35bbd9fc0100e7ddc634",
+                "captain_sources": {
+                  "/Users/lukekist/FortuneWheel/Tools/jira_monkey/monkey/captain_main.swift": "27f65fd23eb94179472ffc01098e932939414e1d928414ebe3402a53338a81b8",
+                  "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainFacts.swift": "0ee3d36352e2beef204a1d88f6d478294c6f89d098a16e72b2cc1576554afec1",
+                  "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRule.swift": "fdd74d2532125c8ebff58be48ff42a9c1618c5334ed4bb78e2fadd45ef12c308",
+                  "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/CaptainRuleSet.swift": "ccf069e13d023e407ca660cce6379bedcc1219b987b695cacda45a3567b4cf3a",
+                  "/Volumes/PRO-G40/kist-loops/Sources/AgentCore/SymbolicCaptain.swift": "4f243db079fa86a9c8f5f8b16172e50cc36af7251767989134af1acc383d99e2"
+                },
+                "source": "/Volumes/PRO-G40/kist-loops"
+              },
+              "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+              "schema_hash": "b96c26ed6b780b512998a9c97e891e12187d07b4297b79ab546a6322b882f8f3",
+              "seal": "a1d5f64049ba9adddc7c931e53f30c5b23f589b7384dbdb6d19769b21f642e68",
+              "server": "fixture",
+              "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+              "tool": "list_tasks"
+            }
+          }
+        ],
+        "understanding": "The mission requires two exact steps using only fixture tools: first, add_task with title 'Mission fixture Alpha' and lose_response false; second, list_tasks with empty arguments to verify the result. The private ledger starts empty. Verification must check /parsedContent/0/tasks/0/title equals JSON string \"Mission fixture Alpha\". One worker is assigned for creation, one reviewer for read-back. No other tools or steps are permitted."
+      },
+      {
+        "at": "2026-09-14T05:47:04.264+00:00",
+        "id": "missionauthority_6be93eb3a3af43f6983d58d34d8325f3",
+        "kind": "mission.authorization",
+        "mission_id": "mission_d84bd84138644befbbbd2a17aca371e8",
+        "note": "Harness checked exactly one private task creation and its separately recorded verification predicate.",
+        "operator": "uid:501:lukekist",
+        "plan_hash": "cbb828144ca61e48420243a30b0f4e090d87c26120a8d8c5e032417a97ca47fc",
+        "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+        "seal": "58c94cf67895f4ab8dca109efd92d24ec11f7eb3a4012ae2a7d9a47ead6b4ba7",
+        "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+        "step_hashes": [
+          "15ae72e55219382a593631a70907135a3bd4f81e9e2442ab5a92f0ebbf2d6fe2",
+          "e3608fd9ec3df110b2a320c56a71aa35e2cb7df8f07d69fa62ec2aeb42a4fe7d"
+        ]
+      },
+      {
+        "agent_id": "agent_3e93dedff3f84db8bd363e397c57f08d",
+        "assessment": {
+          "decision": "PROCEED",
+          "evidence_refs": [
+            "snapshot:snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+            "mission:mission_d84bd84138644befbbbd2a17aca371e8"
+          ],
+          "questions": [],
+          "reason": "The step is correctly specified as an add_task with title \"Mission fixture Alpha\" and lose_response false, matching the objective. The evidence_ref confirms this is a fixture task within the mission context. No contradictory or missing inputs are present. The next step (list_tasks) will verify the creation per the documented JSON response. Authority for execution is retained from recorded evidence and advisory memory as per policy."
+        },
+        "at": "2026-09-14T05:47:40.885+00:00",
+        "authority": "advisory; cannot change the approved step",
+        "id": "agentassessment_5ba2a48d197842b990ddff605170c135",
+        "independent": false,
+        "kind": "mission.assessment",
+        "mission_id": "mission_d84bd84138644befbbbd2a17aca371e8",
+        "model_route": {
+          "cached_tokens": null,
+          "cloud_charge": false,
+          "cost": "unknown",
+          "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+          "input_tokens": 1381,
+          "latency_ms": 36538.08062498865,
+          "load_duration_ns": 26714764833,
+          "output_tokens": 179,
+          "provider": "ollama",
+          "requested_model": "jira-monkey-worker:latest",
+          "returned_model": "jira-monkey-worker:latest",
+          "total_duration_ns": 36532991458
+        },
+        "seal": "ea0b5a01893903d8df30d9cbe4752dc650e573b159cbdca76b7241c72aaf835a",
+        "step_index": 1
+      },
+      {
+        "agent_id": "agent_3e93dedff3f84db8bd363e397c57f08d",
+        "at": "2026-09-14T05:47:43.169+00:00",
+        "id": "missionstep_10811b480d05425891a708a3bba3c42f",
+        "kind": "mission.step",
+        "mission_id": "mission_d84bd84138644befbbbd2a17aca371e8",
+        "result": {
+          "agent_id": "agent_3e93dedff3f84db8bd363e397c57f08d",
+          "call_id": "mission_d84bd84138644befbbbd2a17aca371e8-s1-ce6ada266ca443a2be0c98d88b740827",
+          "request_hash": "15ae72e55219382a593631a70907135a3bd4f81e9e2442ab5a92f0ebbf2d6fe2",
+          "result_hash": "f5ca9dcdc69161cf4d5fe8894242b527e6ae8d5db59df67fb3b7a47656faeb6f",
+          "step_index": 1
+        },
+        "run_id": "missionrun_c5bfbba00fae46ed9633db8b2024f869",
+        "seal": "40fd9870767ff000856bf39ddeca7af1cc15cb94bfe1f451dfb2aefd8e2094e0",
+        "step_index": 1
+      },
+      {
+        "agent_id": "agent_3416337913f94175af0af23cc3774502",
+        "assessment": {
+          "decision": "PROCEED",
+          "evidence_refs": [
+            "snapshot:snapshot_46ea89d2dd00443e82e1900b45e3a80b",
+            "mission:mission_d84bd84138644befbbbd2a17aca371e8",
+            "call:mission_d84bd84138644befbbbd2a17aca371e8-s1-ce6ada266ca443a2be0c98d88b740827"
+          ],
+          "questions": [],
+          "reason": "The evidence confirms the task was created with title \"Mission fixture Alpha\" via `add_task` and verified by `list_tasks`. The parsed content from step 2 matches the expected JSON structure: {\"tasks\":[{\"title\":\"Mission fixture Alpha\"}]}. No contradictory or missing inputs are present. Authority is confined to recorded evidence and tool execution logs as per mission scope. The objective\u2019s two-step requirement is satisfied without deviation."
+        },
+        "at": "2026-09-14T05:48:59.886+00:00",
+        "authority": "advisory; cannot change the approved step",
+        "id": "agentassessment_06eba22008204b6aa61d7661cb28923f",
+        "independent": false,
+        "kind": "mission.assessment",
+        "mission_id": "mission_d84bd84138644befbbbd2a17aca371e8",
+        "model_route": {
+          "cached_tokens": null,
+          "cloud_charge": false,
+          "cost": "unknown",
+          "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+          "input_tokens": 1828,
+          "latency_ms": 76722.91095800756,
+          "load_duration_ns": 62975324750,
+          "output_tokens": 247,
+          "provider": "ollama",
+          "requested_model": "jira-monkey-worker:latest",
+          "returned_model": "jira-monkey-worker:latest",
+          "total_duration_ns": 76718984000
+        },
+        "seal": "4d74e41463187f59c64f3c4c392d29c8ae69638a9ff791e075397732c7005bb0",
+        "step_index": 2
+      },
+      {
+        "agent_id": "agent_3416337913f94175af0af23cc3774502",
+        "at": "2026-09-14T05:49:00.581+00:00",
+        "id": "missionstep_0e488e9a71324bcb9b8bdd46e225a404",
+        "kind": "mission.step",
+        "mission_id": "mission_d84bd84138644befbbbd2a17aca371e8",
+        "result": {
+          "agent_id": "agent_3416337913f94175af0af23cc3774502",
+          "call_id": "mission_d84bd84138644befbbbd2a17aca371e8-s2-787fab432790417ba1a9352ff0249327",
+          "request_hash": "e3608fd9ec3df110b2a320c56a71aa35e2cb7df8f07d69fa62ec2aeb42a4fe7d",
+          "result_hash": "ef57c36898a6c5225587b1d9e206f14f378ef9cbd69690e5e2a0477184746c20",
+          "step_index": 2
+        },
+        "run_id": "missionrun_c5bfbba00fae46ed9633db8b2024f869",
+        "seal": "46537a74a464d845ccbdc34667ac8a8393c4d547a30f24081746ec716395e878",
+        "step_index": 2
+      },
+      {
+        "at": "2026-09-14T05:49:00.581+00:00",
+        "calls": [
+          {
+            "agent_id": "agent_3e93dedff3f84db8bd363e397c57f08d",
+            "call_id": "mission_d84bd84138644befbbbd2a17aca371e8-s1-ce6ada266ca443a2be0c98d88b740827",
+            "request_hash": "15ae72e55219382a593631a70907135a3bd4f81e9e2442ab5a92f0ebbf2d6fe2",
+            "result_hash": "f5ca9dcdc69161cf4d5fe8894242b527e6ae8d5db59df67fb3b7a47656faeb6f",
+            "step_index": 1
+          },
+          {
+            "agent_id": "agent_3416337913f94175af0af23cc3774502",
+            "call_id": "mission_d84bd84138644befbbbd2a17aca371e8-s2-787fab432790417ba1a9352ff0249327",
+            "request_hash": "e3608fd9ec3df110b2a320c56a71aa35e2cb7df8f07d69fa62ec2aeb42a4fe7d",
+            "result_hash": "ef57c36898a6c5225587b1d9e206f14f378ef9cbd69690e5e2a0477184746c20",
+            "step_index": 2
+          }
+        ],
+        "checks": [
+          {
+            "actual": "Mission fixture Alpha",
+            "expected": "Mission fixture Alpha",
+            "passed": true,
+            "pointer": "/parsedContent/0/tasks/0/title",
+            "result_hash": "ef57c36898a6c5225587b1d9e206f14f378ef9cbd69690e5e2a0477184746c20",
+            "step": 2
+          }
+        ],
+        "id": "missionresult_dc1a5a15dc6e446bb8a4aeed37c17f2c",
+        "kind": "mission.result",
+        "mission_id": "mission_d84bd84138644befbbbd2a17aca371e8",
+        "plan_hash": "cbb828144ca61e48420243a30b0f4e090d87c26120a8d8c5e032417a97ca47fc",
+        "result_hash": "d87a7d31417f5df7b560cca7f6490674dbb8f7d22873e4d029c7ac2b1abe5753",
+        "run_id": "missionrun_c5bfbba00fae46ed9633db8b2024f869",
+        "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+        "seal": "03d7ec13e74f9d00878f1d82ede3ceb506a6538e9cfcc7b30dbd1d85c7ba97f8",
+        "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b"
+      },
+      {
+        "at": "2026-09-14T05:49:00.592+00:00",
+        "captain": {
+          "failed_rules": [],
+          "scope": "operator review of exact approved mission and recorded response predicates; not independent service correctness",
+          "verdict": "green",
+          "warnings": [],
+          "world_signal_missing": true
+        },
+        "id": "missionsignoff_277de078e7f6499db3565fa222d722f9",
+        "kind": "mission.signoff",
+        "mission_id": "mission_d84bd84138644befbbbd2a17aca371e8",
+        "note": "Harness inspected the exact private ledger, calls and approved response checks.",
+        "operator": "uid:501:lukekist",
+        "result_hash": "d87a7d31417f5df7b560cca7f6490674dbb8f7d22873e4d029c7ac2b1abe5753",
+        "schedule_hash": "f732a0fe1c5316440ef7d911c21856e4d32dadd747f93f8713e6d2d9563f7037",
+        "seal": "ee55437041970d73621687ff8f88cb0bacbcc14d689330e10d2ceb6140f74a24",
+        "snapshot_id": "snapshot_46ea89d2dd00443e82e1900b45e3a80b"
+      }
+    ],
+    "active_agents": [],
+    "agent_count": 2,
+    "agent_limit": 3,
+    "provider_calls": 3,
+    "provider_limit": 12
+  },
+  "passed": true,
+  "model_calls": [
+    {
+      "at": "2026-09-14T05:47:04.213+00:00",
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "id": "chatcall_280b0b11da8849f3ac02010ff0071f73",
+      "input_tokens": 868,
+      "latency_ms": 72665.31420800311,
+      "load_duration_ns": 60013314666,
+      "output_tokens": 274,
+      "provider": "ollama",
+      "repair": false,
+      "requested_model": "jira-monkey-worker:latest",
+      "returned_model": "jira-monkey-worker:latest",
+      "scope": "chat.mission_planning",
+      "total_duration_ns": 72310557958
+    },
+    {
+      "at": "2026-09-14T05:47:40.885+00:00",
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "id": "chatcall_ff6f265607c044a19058e419cf28bcf2",
+      "input_tokens": 1381,
+      "latency_ms": 36538.08062498865,
+      "load_duration_ns": 26714764833,
+      "output_tokens": 179,
+      "provider": "ollama",
+      "repair": false,
+      "requested_model": "jira-monkey-worker:latest",
+      "returned_model": "jira-monkey-worker:latest",
+      "scope": "chat.mission_agent",
+      "total_duration_ns": 36532991458
+    },
+    {
+      "at": "2026-09-14T05:48:59.885+00:00",
+      "cached_tokens": null,
+      "cloud_charge": false,
+      "cost": "unknown",
+      "digest": "ee4b975b58c17ce268cd19d40db35d5edc64603035d2ffc1fee1968eb0947f7b",
+      "id": "chatcall_95686896f61f42c9b94c11a175601b06",
+      "input_tokens": 1828,
+      "latency_ms": 76722.91095800756,
+      "load_duration_ns": 62975324750,
+      "output_tokens": 247,
+      "provider": "ollama",
+      "repair": false,
+      "requested_model": "jira-monkey-worker:latest",
+      "returned_model": "jira-monkey-worker:latest",
+      "scope": "chat.mission_agent",
+      "total_duration_ns": 76718984000
+    }
+  ],
+  "status_samples": 6074,
+  "status_p95_ms": 0.30162499751895666,
+  "observed_at": "2026-09-14T05:49:00.594311+00:00"
+}
