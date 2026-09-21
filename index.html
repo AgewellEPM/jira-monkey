@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🍌 Monkey — a foreground terminal worker with signed work evidence</title>
+<meta name="description" content="Monkey plans, works in a real terminal, and hands back signed evidence of what it actually did — with your own local model, on your own machine. Install straight from GitHub.">
+<meta property="og:title" content="🍌 Monkey — terminal worker with signed work evidence">
+<meta property="og:description" content="Local models. Real terminal jobs. Tamper-evident proof of the work. Install straight from GitHub.">
+<meta property="og:type" content="website">
+<style>
+  :root{ --bg:#0e0f0a; --panel:#16180f; --line:#2c2f1f; --ink:#f3f0e3; --muted:#b9b7a3;
+    --banana:#f2c94c; --banana2:#e0a800; --green:#7fd6a8; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,#20220f 0,transparent 60%),var(--bg);
+    color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;line-height:1.6}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  header{padding:76px 0 30px;text-align:center}
+  .logo{font-size:76px;line-height:1;filter:drop-shadow(0 6px 18px rgba(242,201,76,.25))}
+  h1{font-size:clamp(38px,7vw,68px);margin:14px 0 6px;letter-spacing:-.02em}
+  .grad{background:linear-gradient(90deg,var(--banana),#ffe08a,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tag{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:640px;margin:0 auto 8px}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:22px 0 6px}
+  .badge{font:12px/1 var(--mono);color:#0e0f0a;background:var(--banana);border-radius:999px;padding:6px 11px;font-weight:700}
+  .badge.alt{background:#2a2d1c;color:var(--banana)}
+  section{padding:26px 0;border-top:1px solid var(--line)}
+  h2{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--banana2);margin:0 0 16px}
+  .term{background:#07080a;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:14px 0}
+  .term .bar{display:flex;gap:7px;align-items:center;padding:9px 13px;background:#101207;border-bottom:1px solid var(--line)}
+  .term .bar i{width:11px;height:11px;border-radius:50%;background:#31341f;display:inline-block}
+  .term .bar span{margin-left:8px;font:12px var(--mono);color:var(--muted)}
+  .term pre{margin:0;padding:16px 18px;font:14px/1.7 var(--mono);color:var(--green);overflow-x:auto;white-space:pre}
+  .term pre .c{color:#fff;font-weight:600} .term pre .d{color:#8f9277}
+  .lbl{font:11px var(--mono);color:var(--muted);margin:16px 0 4px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .card h3{margin:0 0 6px;font-size:17px} .card p{margin:0;color:var(--muted);font-size:14.5px}
+  .cta{display:inline-flex;align-items:center;gap:8px;background:var(--banana);color:#0e0f0a;font-weight:700;
+    text-decoration:none;border-radius:11px;padding:12px 20px;margin:6px 8px 0 0}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .note{background:#1a1c10;border:1px solid #46421f;border-radius:12px;padding:14px 18px;color:#d8d3b4;font-size:14.5px}
+  code{font-family:var(--mono);background:#22241500;color:var(--banana)}
+  footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:14px}
+  footer a{color:var(--green);text-decoration:none}
+  @media(max-width:620px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo">🍌</div>
+  <h1>Monkey</h1>
+  <p class="tag">A foreground terminal worker with local models and <span class="grad">signed work evidence.</span></p>
+  <p class="tag">Point it at a ticket, a coding task, or a research question. It plans, works in a real terminal, and hands back proof of what it actually did.</p>
+  <div class="badges"><span class="badge">python 3.11+</span><span class="badge alt">local by default</span><span class="badge alt">0.7.0.dev · pilot</span><span class="badge alt">macOS · Linux</span></div>
+  <div><a class="cta" href="#install">Install ↓</a><a class="cta ghost" href="https://github.com/AgewellEPM/jira-monkey">View on GitHub ↗</a></div>
+</div></header>
+
+<div class="wrap">
+
+<section id="install">
+  <h2>Install — straight from GitHub</h2>
+  <p class="lbl">One line — installs the <code>Monkey</code> command onto your machine:</p>
+  <div class="term"><div class="bar"><i></i><i></i><i></i><span>your terminal</span></div><pre><span class="c">$</span> curl -fsSL https://raw.githubusercontent.com/AgewellEPM/jira-monkey/main/install.sh | bash</pre></div>
+  <p class="lbl">Or with pipx / pip:</p>
+  <div class="term"><div class="bar"><i></i><i></i><i></i><span>your terminal</span></div><pre><span class="c">$</span> pipx install git+https://github.com/AgewellEPM/jira-monkey.git
+<span class="c">$</span> pip  install git+https://github.com/AgewellEPM/jira-monkey.git</pre></div>
+  <p class="lbl">Then run it:</p>
+  <div class="term"><div class="bar"><i></i><i></i><i></i><span>your terminal</span></div><pre><span class="c">$</span> Monkey
+<span class="d">🍌 Monkey · local coding, research, tickets and requests</span>
+<span class="c">$</span> Monkey --help   <span class="d"># every command</span></pre></div>
+  <div class="note">Requires <b>Python 3.11+</b>. The installer finds a suitable interpreter, prefers <code>pipx</code>, and falls back to <code>pip&nbsp;--user</code>.</div>
+</section>
+
+<section>
+  <h2>What it does</h2>
+  <div class="grid">
+    <div class="card"><h3>🧠 Local by default</h3><p>Reasoning runs on your own model (Ollama and friends). Nothing goes to a cloud model unless you opt in.</p></div>
+    <div class="card"><h3>🧾 Signed work evidence</h3><p>Every run produces a tamper-evident record — the plan, the steps, the outputs. Claimed work you can actually check.</p></div>
+    <div class="card"><h3>🖥️ Real terminal jobs</h3><p>Coding, research, tickets and requests, executed as bounded steps — not a wall of suggestions.</p></div>
+    <div class="card"><h3>📦 Offline build runner</h3><p>A captured, offline container for real multiprocess builds, with retained syscall evidence.</p></div>
+    <div class="card"><h3>🍌 Terminal + web</h3><p>A banana-themed console, plus an optional local web workspace sharing the same foreground session.</p></div>
+    <div class="card"><h3>🔌 Connectors, gated</h3><p>Connect the services you use through an explicit, auditable routing layer.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Quick tour</h2>
+  <div class="term"><div class="bar"><i></i><i></i><i></i><span>Monkey</span></div><pre><span class="c">Monkey repl</span>          <span class="d">interactive worker</span>
+<span class="c">Monkey mission "…"</span>   <span class="d">give it a mission</span>
+<span class="c">Monkey dashboard</span>     <span class="d">local web workspace for this session</span>
+<span class="c">Monkey audit-verify</span>  <span class="d">verify the signed evidence of past runs</span>
+<span class="c">Monkey builder</span>       <span class="d">pick a captured offline build environment</span></pre></div>
+</section>
+
+<section>
+  <h2>Honest status</h2>
+  <div class="note">A <b>development candidate (0.7.0.dev)</b>; the installed command tracks <code>0.6.0+dashboard.1</code>. Passed specific macOS and Linux ARM64 CLI/state checks and a set of Windows file/state checks. <b>Windows console qualification and worldwide-deployment readiness are not claimed.</b> Full gates in <a href="https://github.com/AgewellEPM/jira-monkey/blob/main/docs/RELEASE_READINESS.md" style="color:var(--green)">docs/RELEASE_READINESS.md</a>.</div>
+</section>
+
+</div>
+
+<footer><div class="wrap">
+  🍌 <b>Monkey</b> · <a href="https://github.com/AgewellEPM/jira-monkey">github.com/AgewellEPM/jira-monkey</a><br>
+  Perslis — a one-human company; the rest of the team is software · <a href="https://www.perslis.com">perslis.com</a>
+</div></footer>
+</body>
+</html>
